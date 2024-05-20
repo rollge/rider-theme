@@ -24,10 +24,10 @@ function fish_prompt
 	end
 
 	if [ (_rider_theme_git_branch_name) ]
-		if test (_rider_theme_git_branch_name) = 'master'
+		if test (_rider_theme_git_branch_name) = 'master' -o (_rider_theme_git_branch_name) = 'main'
 			set -l git_branch (_rider_theme_git_branch_name)
 			set git_info "$cyan ($red$git_branch$cyan)$normal"
-		else if test (_rider_theme_git_branch_name) = 'develop'
+		else if test (_rider_theme_git_branch_name) = 'develop' -o (_rider_theme_git_branch_name) = 'dev'
 			set -l git_branch (_rider_theme_git_branch_name)
 			set git_info "$cyan ($yellow$git_branch$cyan)$normal"
 		else
@@ -38,5 +38,5 @@ function fish_prompt
 
 	set -l lambda "߷"
 
-	echo "$green$USER $magenta$lambda $blue$cwd $status_indicator$git_info $normal"
+	echo "$green$USER@$hostname $magenta$lambda $blue$cwd $status_indicator$git_info $normal"
 end
