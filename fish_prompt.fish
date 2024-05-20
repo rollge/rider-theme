@@ -14,13 +14,14 @@ function fish_prompt
 	set -l blue (set_color blue)
 	set -l cyan (set_color cyan)
 	set -l gray (set_color 555)
+	set -l orange (set_color df5f00)
 
 	set -l cwd (prompt_pwd)
 
 	if test $last_status -eq 0
-		set status_indicator $green"➤"
+		set status_indicator $green"λ"
 	else
-		set status_indicator $red"➤"
+		set status_indicator $red"λ"
 	end
 
 	if [ (_rider_theme_git_branch_name) ]
@@ -38,5 +39,5 @@ function fish_prompt
 
 	set -l lambda "߷"
 
-	echo "$green$USER$normal at $magenta$hostname $magenta$lambda $blue$cwd $status_indicator$git_info $normal"
+	echo "$green$USER$orange at $magenta$hostname $magenta$lambda $blue$cwd $status_indicator$git_info $normal"
 end
