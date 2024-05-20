@@ -37,7 +37,8 @@ function fish_prompt
 		end
 	end
 
-	set -l lambda "߷"
+	#set -l lambda "߷"
+	set -l lambda "in"
 
 	echo "$green$USER$normal at $orange$hostname $magenta$lambda $blue$cwd $status_indicator$git_info $normal"
 end
